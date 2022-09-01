@@ -7,6 +7,13 @@ export default class EtudiantsController {
     public async store({ request }: HttpContextContract) {
 
         let etudiant: Etudiant
+
+        const coverImage = request.file('cover_image', {
+            size: '2mb',
+            extnames: ['jpg', 'png', 'gif'],
+          })!
+          
+        await coverImage.moveToDisk('./photo')
         
         try {
             etudiant = await Etudiant.create({
@@ -17,7 +24,7 @@ export default class EtudiantsController {
                 localisation: request.body().localisation,
                 sexe: request.body().sexe,
                 telephone: request.body().telephone,
-                // photo: request.body().photo,
+                photo: coverImage.filePath
                })
                return etudiant
             // console.log(etudiant);
@@ -29,5 +36,9 @@ export default class EtudiantsController {
        
        
         
+    }
+
+    public async show({ request }: HttpContextContract) {
+        return await Etudiant.findOrFail(request.param('id'))
     }
 }
