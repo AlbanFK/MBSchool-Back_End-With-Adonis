@@ -8,6 +8,9 @@ export default class Payement extends BaseModel {
   public id: number
 
   @column()
+  public montant: number
+
+  @column()
   public transaction: string
 
   @column.dateTime({ autoCreate: true })

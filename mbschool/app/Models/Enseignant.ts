@@ -58,7 +58,7 @@ export default class Enseignant extends BaseModel {
   }
   @afterCreate()
   public static async assignMatricule(enseignant: Enseignant) {
-    enseignant.matricule = `ET${enseignant.id}`;
+    enseignant.matricule = `ES${enseignant.id}`;
     try {
       await enseignant.save()
     } catch (error) {

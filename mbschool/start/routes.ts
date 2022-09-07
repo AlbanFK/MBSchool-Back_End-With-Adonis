@@ -25,3 +25,7 @@ Route.get('/', async () => {
 })
 
 Route.resource('etudiants', 'EtudiantsController').apiOnly()
+
+Route.resource('enseignants', 'EnseignantsController').apiOnly()
+Route.put('/enseignants/:id/:attribut/update', 'EnseignantsController.myUpdate')
+Route.get('/enseignants/:attribut/:value/search', 'EnseignantsController.search')

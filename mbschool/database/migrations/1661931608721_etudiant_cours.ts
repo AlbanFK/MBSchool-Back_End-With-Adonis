@@ -10,6 +10,8 @@ export default class extends BaseSchema {
       table.integer('cours_id').unsigned().references('cours.id')
       table.unique(['etudiant_id', 'cours_id'])
       table.boolean('payer')
+      table.string('commentaire')
+      table.integer('note')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

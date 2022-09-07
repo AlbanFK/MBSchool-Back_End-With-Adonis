@@ -59,7 +59,7 @@ export default class Etudiant extends BaseModel {
   }
 
   @manyToMany(() => Cour, {
-    pivotColumns: ['payer'],
+    pivotColumns: ['payer', 'note', 'commentaire'],
   })
   public cours: ManyToMany<typeof Cour>
 

@@ -41,4 +41,5 @@ export default class EtudiantsController {
     public async show({ request }: HttpContextContract) {
         return await Etudiant.findOrFail(request.param('id'))
     }
+
 }

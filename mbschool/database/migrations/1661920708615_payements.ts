@@ -17,6 +17,7 @@ export default class extends BaseSchema {
         .references('enseignants.id')
         .onDelete('CASCADE')
       table.string('transaction')
+      table.integer('montant')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })
